@@ -9,6 +9,7 @@ If Your Using Samsung The Touch Might Not Respond If It Do Just Open Notificatio
 2 Steps
 
 Step 1 Wireless Debugging (Bugjaeger)
+
 Open Bugjaeger And Connect To Your Device
 And Click <img width="169" height="153" alt="Screenshot_20261017_145815" src="https://github.com/user-attachments/assets/344b9927-2d39-4cc1-9bb0-ad04ea46fbd2" />
 
