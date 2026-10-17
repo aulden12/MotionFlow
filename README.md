@@ -40,3 +40,12 @@ How It Works
          │   premultiplied RGBA, alpha=0 where static     │  history accumulate  │
          └──────────────── TYPE_APPLICATION_OVERLAY ◄──── │  composite @ vsync   │
                            FLAG_NOT_TOUCHABLE             └──────────────────────┘
+
+
+Why The Screen Still Looks Sharp                        
+
+Everything hinges on the motion mask. Static pixels resolve to 0, the shader early-outs to vec4(0.0), and the overlay is perfectly transparent there — the UI below is untouched, pixel for pixel. Only genuinely moving regions get painted. Without this, capture latency would smear unreadable ghosting over all your text.
+
+
+My Own Settings
+<img width="2200" height="2984" alt="Screenshot_20261017_150849_com arena motionflow_edit_5132035141061" src="https://github.com/user-attachments/assets/e521833a-7ac1-4311-b7cc-a9802b545921" />
