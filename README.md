@@ -27,3 +27,16 @@ Step 2 (ADB)
 Use A PC And Connect Your Phone To The PC And Paste The Code Below
 
 adb shell settings put global block_untrusted_touches 0
+
+
+
+How It Works
+
+ ┌──────────────┐  mirror   ┌───────────────┐   OES tex   ┌──────────────────────┐
+ │ Real display │ ────────► │ VirtualDisplay│ ──────────► │ GL thread            │
+ └──────────────┘           │ (scaled 50%)  │             │  capture → prev/cur  │
+         ▲                  └───────────────┘             │  motion mask         │
+         │                                                │  block-match flow    │
+         │   premultiplied RGBA, alpha=0 where static     │  history accumulate  │
+         └──────────────── TYPE_APPLICATION_OVERLAY ◄──── │  composite @ vsync   │
+                           FLAG_NOT_TOUCHABLE             └──────────────────────┘
